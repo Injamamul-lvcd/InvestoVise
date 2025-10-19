@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { Navbar, Footer } from '@/components/layout';
 import { WebVitals } from '@/components/performance/WebVitals';
+import RootLayoutClient from '@/components/layout/RootLayoutClient';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -67,11 +67,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <WebVitals />
-        <div id="root" className="min-h-screen flex flex-col">
-          <Navbar />
-          <main className="flex-1 transition-colors duration-200 pt-16">{children}</main>
-          <Footer />
-        </div>
+        <RootLayoutClient>
+          {children}
+        </RootLayoutClient>
       </body>
     </html>
   );

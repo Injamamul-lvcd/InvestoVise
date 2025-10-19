@@ -111,27 +111,57 @@ export default function AdminSidebar() {
   };
 
   return (
-    <div className="fixed left-0 top-16 bottom-0 w-64 bg-white dark:bg-slate-800 border-r border-gray-200 dark:border-slate-700 overflow-y-auto transition-colors duration-200">
-      <div className="p-4">
-        <nav className="space-y-2">
-          {sidebarItems.map((item) => (
+    <div className="w-64 bg-white dark:bg-slate-800 border-r border-gray-200 dark:border-slate-700 overflow-y-auto transition-colors duration-200 flex-shrink-0 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-slate-600 scrollbar-track-transparent">
+      <div className="p-6 pt-20">
+        {/* Sidebar Header */}
+        <div className="mb-8">
+          <h2 className="text-xs font-semibold text-gray-500 dark:text-slate-400 uppercase tracking-wider mb-4">
+            Navigation
+          </h2>
+        </div>
+        
+        <nav className="space-y-1">
+          {sidebarItems.map((item, index) => (
             <div key={item.name}>
+              {/* Add divider after Dashboard */}
+              {index === 1 && (
+                <div className="my-6">
+                  <div className="border-t border-gray-200 dark:border-slate-700"></div>
+                  <h3 className="mt-6 mb-3 text-xs font-semibold text-gray-500 dark:text-slate-400 uppercase tracking-wider">
+                    Management
+                  </h3>
+                </div>
+              )}
+              
+              {/* Add divider before Analytics */}
+              {index === sidebarItems.length - 2 && (
+                <div className="my-6">
+                  <div className="border-t border-gray-200 dark:border-slate-700"></div>
+                  <h3 className="mt-6 mb-3 text-xs font-semibold text-gray-500 dark:text-slate-400 uppercase tracking-wider">
+                    System
+                  </h3>
+                </div>
+              )}
+              
+              <div>
               {item.children ? (
                 <div>
                   <button
                     onClick={() => toggleExpanded(item.name)}
-                    className={`w-full flex items-center justify-between px-3 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200 ${
+                    className={`w-full flex items-center justify-between px-4 py-3 text-sm font-semibold rounded-xl transition-all duration-200 group ${
                       isActive(item.href)
-                        ? 'bg-gradient-to-r from-amber-500/10 to-orange-500/10 text-amber-700 dark:text-amber-400 shadow-lg shadow-amber-500/20 border border-amber-500/20'
-                        : 'text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 hover:shadow-md'
+                        ? 'bg-gradient-to-r from-amber-500/15 to-orange-500/15 text-amber-700 dark:text-amber-400 shadow-lg shadow-amber-500/25 border border-amber-500/30'
+                        : 'text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 hover:shadow-md hover:scale-[1.02]'
                     }`}
                   >
                     <div className="flex items-center space-x-3">
-                      {item.icon}
-                      <span>{item.name}</span>
+                      <div className="flex-shrink-0">
+                        {item.icon}
+                      </div>
+                      <span className="font-medium">{item.name}</span>
                     </div>
                     <svg
-                      className={`w-4 h-4 transition-transform ${
+                      className={`w-4 h-4 transition-transform duration-200 flex-shrink-0 ${
                         expandedItems.includes(item.name) ? 'rotate-180' : ''
                       }`}
                       fill="none"
@@ -142,23 +172,23 @@ export default function AdminSidebar() {
                     </svg>
                   </button>
                   {expandedItems.includes(item.name) && (
-                    <div className="ml-6 mt-2 space-y-1">
+                    <div className="ml-8 mt-3 space-y-1">
                       {item.children.map((child) => (
                         <Link
                           key={child.name}
                           href={child.href}
-                          className={`flex items-center px-4 py-2 text-sm rounded-xl transition-all duration-200 ${
+                          className={`flex items-center px-4 py-2.5 text-sm rounded-xl transition-all duration-200 group ${
                             isActive(child.href)
-                              ? 'bg-gradient-to-r from-amber-500/10 to-orange-500/10 text-amber-700 dark:text-amber-400 font-semibold border-l-2 border-amber-500'
-                              : 'text-gray-600 dark:text-slate-400 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-amber-700 dark:hover:text-amber-400'
+                              ? 'bg-gradient-to-r from-amber-500/15 to-orange-500/15 text-amber-700 dark:text-amber-400 font-semibold border-l-3 border-amber-500 shadow-sm'
+                              : 'text-gray-600 dark:text-slate-400 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-amber-700 dark:hover:text-amber-400 hover:scale-[1.02]'
                           }`}
                         >
-                          <div className={`w-2 h-2 rounded-full mr-3 transition-all duration-200 ${
+                          <div className={`w-2 h-2 rounded-full mr-4 transition-all duration-200 flex-shrink-0 ${
                             isActive(child.href)
                               ? 'bg-amber-500 shadow-lg shadow-amber-500/50'
-                              : 'bg-gray-300 dark:bg-slate-600'
+                              : 'bg-gray-300 dark:bg-slate-600 group-hover:bg-amber-400'
                           }`}></div>
-                          {child.name}
+                          <span className="font-medium">{child.name}</span>
                         </Link>
                       ))}
                     </div>
@@ -167,19 +197,25 @@ export default function AdminSidebar() {
               ) : (
                 <Link
                   href={item.href}
-                  className={`flex items-center space-x-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200 ${
+                  className={`flex items-center space-x-3 px-4 py-3 text-sm font-semibold rounded-xl transition-all duration-200 group ${
                     isActive(item.href)
-                      ? 'bg-gradient-to-r from-amber-500/10 to-orange-500/10 text-amber-700 dark:text-amber-400 shadow-lg shadow-amber-500/20 border border-amber-500/20'
-                      : 'text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 hover:shadow-md'
+                      ? 'bg-gradient-to-r from-amber-500/15 to-orange-500/15 text-amber-700 dark:text-amber-400 shadow-lg shadow-amber-500/25 border border-amber-500/30'
+                      : 'text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 hover:shadow-md hover:scale-[1.02]'
                   }`}
                 >
-                  {item.icon}
-                  <span>{item.name}</span>
+                  <div className="flex-shrink-0">
+                    {item.icon}
+                  </div>
+                  <span className="font-medium">{item.name}</span>
                 </Link>
               )}
+              </div>
             </div>
           ))}
         </nav>
+        
+        {/* Bottom Spacing */}
+        <div className="h-8"></div>
       </div>
     </div>
   );

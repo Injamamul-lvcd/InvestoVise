@@ -19,10 +19,10 @@ export default function AdminLayout({
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors duration-200">
       <AdminNavbar />
-      <div className="flex">
+      <div className="flex h-screen">
         <AdminSidebar />
-        <main className="flex-1 ml-64 pt-16">
-          <div className="p-6">
+        <main className="flex-1 overflow-y-auto">
+          <div className="p-6 pt-20">
             {children}
           </div>
         </main>
