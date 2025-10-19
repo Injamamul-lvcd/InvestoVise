@@ -53,25 +53,46 @@ const Footer: React.FC = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-3">
-              {/* Bull Logo */}
-              <div className="relative w-9 h-9 rounded-xl flex items-center justify-center bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 shadow-lg shadow-amber-500/25">
-                <svg className="w-5 h-5 text-white drop-shadow-sm" viewBox="0 0 32 32" fill="currentColor">
-                  <path d="M16 4c-2 0-4 1-5 3l-2 4c-1 2 0 4 2 5l1 1v3c0 2 1 3 3 3h4c2 0 3-1 3-3v-3l1-1c2-1 3-3 2-5l-2-4c-1-2-3-3-5-3z"/>
-                  <path d="M12 6c0-1 1-2 2-2s2 1 2 2-1 2-2 2-2-1-2-2zm6 0c0-1 1-2 2-2s2 1 2 2-1 2-2 2-2-1-2-2z"/>
-                  <circle cx="13" cy="12" r="1" opacity="0.8"/>
-                  <circle cx="19" cy="12" r="1" opacity="0.8"/>
-                  <path d="M14 15h4c0 1-1 2-2 2s-2-1-2-2z" opacity="0.9"/>
-                  <path d="M24 20l4-4-4-4v2h-6v4h6v2z" opacity="0.7"/>
+              {/* VISE INVESTO YouTube Logo */}
+              <div className="relative w-10 h-10 rounded-full flex items-center justify-center bg-black border-2 border-gray-200 dark:border-white shadow-lg shadow-yellow-500/25">
+                <svg className="w-6 h-6 text-yellow-400 drop-shadow-sm" viewBox="0 0 100 100" fill="currentColor">
+                  {/* Bull silhouette from YouTube logo */}
+                  <path d="M35 25c-1 0-2 1-2 2s1 2 2 2 2-1 2-2-1-2-2-2z"/>
+                  <path d="M65 25c-1 0-2 1-2 2s1 2 2 2 2-1 2-2-1-2-2-2z"/>
+                  <path d="M30 30c0-3 3-5 6-5h28c3 0 6 2 6 5v15c0 8-4 12-8 15-2 2-5 3-12 3s-10-1-12-3c-4-3-8-7-8-15V30z"/>
+                  <rect x="35" y="60" width="4" height="15" rx="2"/>
+                  <rect x="45" y="60" width="4" height="15" rx="2"/>
+                  <rect x="55" y="60" width="4" height="15" rx="2"/>
+                  <rect x="65" y="60" width="4" height="15" rx="2"/>
+                  <path d="M70 45c3 0 5 1 7 3l2 2c1 1 1 2 0 3l-2 2c-2 2-4 3-7 3"/>
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white">InvestoVise</h3>
-                <p className="text-xs font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wide">Wealth Builder</p>
+                <div className="flex items-center space-x-1">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">VISE</h3>
+                  <h3 className="text-lg font-bold text-yellow-600 dark:text-yellow-400">INVESTO</h3>
+                </div>
+                <p className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wide">YouTube Channel</p>
               </div>
             </div>
             <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
               Your trusted partner for financial education and investment guidance in India.
             </p>
+            
+            {/* YouTube Channel Link */}
+            <div className="mb-4">
+              <a 
+                href="https://youtube.com/@viseinvesto" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm font-semibold transition-all duration-200 hover:scale-105 shadow-lg shadow-red-500/30"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span>Watch on YouTube</span>
+              </a>
+            </div>
             
             {/* Social Links */}
             <div className="flex space-x-3">

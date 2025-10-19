@@ -209,36 +209,46 @@ const Navbar: React.FC = () => {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center group">
               <div className="flex items-center space-x-3">
-                {/* Financial Bull Logo */}
-                <div className={`relative w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 ${isDarkMode
-                  ? 'bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 shadow-xl shadow-amber-500/40'
-                  : 'bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 shadow-xl shadow-amber-500/30'
-                  }`}>
-                  {/* Enhanced Bull SVG */}
-                  <svg className="w-7 h-7 text-white drop-shadow-sm" viewBox="0 0 32 32" fill="currentColor">
-                    {/* Bull body */}
-                    <path d="M16 4c-2 0-4 1-5 3l-2 4c-1 2 0 4 2 5l1 1v3c0 2 1 3 3 3h4c2 0 3-1 3-3v-3l1-1c2-1 3-3 2-5l-2-4c-1-2-3-3-5-3z" />
+                {/* VISE INVESTO YouTube Logo */}
+                <div className={`relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 bg-black border-2 ${
+                  isDarkMode 
+                    ? 'border-white shadow-xl shadow-yellow-500/40' 
+                    : 'border-gray-200 shadow-xl shadow-yellow-500/30'
+                }`}>
+                  {/* YouTube Channel Bull Logo */}
+                  <svg className="w-8 h-8 text-yellow-400 drop-shadow-sm" viewBox="0 0 100 100" fill="currentColor">
+                    {/* Bull silhouette inspired by your YouTube logo */}
                     {/* Bull horns */}
-                    <path d="M12 6c0-1 1-2 2-2s2 1 2 2-1 2-2 2-2-1-2-2zm6 0c0-1 1-2 2-2s2 1 2 2-1 2-2 2-2-1-2-2z" />
-                    {/* Bull face details */}
-                    <circle cx="13" cy="12" r="1" opacity="0.8" />
-                    <circle cx="19" cy="12" r="1" opacity="0.8" />
-                    <path d="M14 15h4c0 1-1 2-2 2s-2-1-2-2z" opacity="0.9" />
-                    {/* Market trend arrow */}
-                    <path d="M24 20l4-4-4-4v2h-6v4h6v2z" opacity="0.7" />
+                    <path d="M35 25c-1 0-2 1-2 2s1 2 2 2 2-1 2-2-1-2-2-2z"/>
+                    <path d="M65 25c-1 0-2 1-2 2s1 2 2 2 2-1 2-2-1-2-2-2z"/>
+                    {/* Bull head and body */}
+                    <path d="M30 30c0-3 3-5 6-5h28c3 0 6 2 6 5v15c0 8-4 12-8 15-2 2-5 3-12 3s-10-1-12-3c-4-3-8-7-8-15V30z"/>
+                    {/* Bull legs */}
+                    <rect x="35" y="60" width="4" height="15" rx="2"/>
+                    <rect x="45" y="60" width="4" height="15" rx="2"/>
+                    <rect x="55" y="60" width="4" height="15" rx="2"/>
+                    <rect x="65" y="60" width="4" height="15" rx="2"/>
+                    {/* Bull tail */}
+                    <path d="M70 45c3 0 5 1 7 3l2 2c1 1 1 2 0 3l-2 2c-2 2-4 3-7 3"/>
                   </svg>
                   {/* Premium glow effect */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-amber-400 via-orange-400 to-red-400 opacity-0 group-hover:opacity-30 transition-all duration-300 blur-sm"></div>
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-amber-300 to-orange-300 opacity-0 group-hover:opacity-20 transition-all duration-300"></div>
+                  <div className="absolute inset-0 rounded-full bg-yellow-400 opacity-0 group-hover:opacity-20 transition-all duration-300 blur-sm"></div>
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 opacity-0 group-hover:opacity-10 transition-all duration-300"></div>
                 </div>
                 <div className="flex flex-col">
-                  <span className={`text-xl font-bold tracking-tight transition-all duration-200 group-hover:text-amber-500 ${isDarkMode ? 'text-white' : 'text-slate-900'
+                  <div className="flex items-center space-x-1">
+                    <span className={`text-lg font-bold tracking-tight transition-all duration-200 ${isDarkMode ? 'text-white group-hover:text-yellow-400' : 'text-slate-900 group-hover:text-yellow-600'
+                      }`}>
+                      VISE
+                    </span>
+                    <span className={`text-lg font-bold tracking-tight transition-all duration-200 ${isDarkMode ? 'text-yellow-400 group-hover:text-yellow-300' : 'text-yellow-600 group-hover:text-yellow-700'
+                      }`}>
+                      INVESTO
+                    </span>
+                  </div>
+                  <span className={`text-xs font-semibold tracking-wide uppercase transition-all duration-200 ${isDarkMode ? 'text-slate-400 group-hover:text-slate-300' : 'text-slate-600 group-hover:text-slate-700'
                     }`}>
-                    InvestoVise
-                  </span>
-                  <span className={`text-xs font-semibold tracking-wide uppercase transition-all duration-200 ${isDarkMode ? 'text-amber-400 group-hover:text-amber-300' : 'text-amber-600 group-hover:text-amber-700'
-                    }`}>
-                    Wealth Builder
+                    YouTube Channel
                   </span>
                 </div>
               </div>

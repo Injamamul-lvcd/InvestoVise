@@ -8,10 +8,15 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'InvestoVise - Indian Investment Platform',
-    template: '%s | InvestoVise',
+    default: 'VISE INVESTO - Indian Investment Platform',
+    template: '%s | VISE INVESTO',
   },
-  description: 'Comprehensive financial education and investment platform for India. Learn about stocks, mutual funds, loans, credit cards, and brokers.',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
+  description: 'VISE INVESTO - Comprehensive financial education and investment platform for India. Learn about stocks, mutual funds, loans, credit cards, and brokers.',
   keywords: ['investment', 'finance', 'India', 'stocks', 'mutual funds', 'loans', 'credit cards', 'brokers', 'financial education'],
   authors: [{ name: 'InvestoVise Team' }],
   creator: 'InvestoVise',
@@ -31,8 +36,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: 'https://investovise.com',
-    siteName: 'InvestoVise',
-    title: 'InvestoVise - Indian Investment Platform',
+    siteName: 'VISE INVESTO',
+    title: 'VISE INVESTO - Indian Investment Platform',
     description: 'Comprehensive financial education and investment platform for India',
     images: [
       {
@@ -47,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@investovise',
     creator: '@investovise',
-    title: 'InvestoVise - Indian Investment Platform',
+    title: 'VISE INVESTO - Indian Investment Platform',
     description: 'Comprehensive financial education and investment platform for India',
     images: ['/images/og-default.jpg'],
   },

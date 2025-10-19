@@ -51,13 +51,24 @@ export default function AdminNavbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg shadow-amber-500/30">
-              <svg className="w-6 h-6 text-white drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center shadow-lg shadow-yellow-500/30 border-2 border-gray-200 dark:border-white">
+              <svg className="w-6 h-6 text-yellow-400 drop-shadow-sm" viewBox="0 0 100 100" fill="currentColor">
+                <path d="M35 25c-1 0-2 1-2 2s1 2 2 2 2-1 2-2-1-2-2-2z"/>
+                <path d="M65 25c-1 0-2 1-2 2s1 2 2 2 2-1 2-2-1-2-2-2z"/>
+                <path d="M30 30c0-3 3-5 6-5h28c3 0 6 2 6 5v15c0 8-4 12-8 15-2 2-5 3-12 3s-10-1-12-3c-4-3-8-7-8-15V30z"/>
+                <rect x="35" y="60" width="4" height="15" rx="2"/>
+                <rect x="45" y="60" width="4" height="15" rx="2"/>
+                <rect x="55" y="60" width="4" height="15" rx="2"/>
+                <rect x="65" y="60" width="4" height="15" rx="2"/>
+                <path d="M70 45c3 0 5 1 7 3l2 2c1 1 1 2 0 3l-2 2c-2 2-4 3-7 3"/>
               </svg>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900 dark:text-white transition-colors duration-200">InvestoVise Admin</h1>
+              <div className="flex items-center space-x-1">
+                <h1 className="text-lg font-bold text-gray-900 dark:text-white transition-colors duration-200">VISE</h1>
+                <h1 className="text-lg font-bold text-yellow-600 dark:text-yellow-400 transition-colors duration-200">INVESTO</h1>
+                <span className="text-lg font-bold text-gray-900 dark:text-white transition-colors duration-200">Admin</span>
+              </div>
               <p className="text-xs text-gray-500 dark:text-slate-400 transition-colors duration-200">Management Dashboard</p>
             </div>
           </div>
