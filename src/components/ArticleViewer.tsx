@@ -57,9 +57,9 @@ const ArticleViewer: React.FC<ArticleViewerProps> = ({
   };
 
   return (
-    <article className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+    <article className="max-w-4xl mx-auto bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-gray-200 dark:border-slate-700 overflow-hidden transition-colors duration-200">
       {/* Article Header */}
-      <header className="px-6 py-8 border-b border-gray-200">
+      <header className="px-6 py-8 border-b border-gray-200 dark:border-slate-700 transition-colors duration-200">
         {article.featuredImage && (
           <div className="mb-6 relative h-64 md:h-80 rounded-lg overflow-hidden">
             <Image
@@ -162,7 +162,7 @@ const ArticleViewer: React.FC<ArticleViewerProps> = ({
               {relatedArticles.slice(0, 3).map((relatedArticle) => (
                 <div
                   key={relatedArticle._id.toString()}
-                  className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+                  className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 overflow-hidden hover:shadow-md transition-all duration-200 cursor-pointer"
                 >
                   {relatedArticle.featuredImage && (
                     <div className="relative h-32">

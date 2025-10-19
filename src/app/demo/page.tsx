@@ -148,14 +148,14 @@ export default function DemoPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center transition-colors duration-200">
           Content Display Components Demo
         </h1>
 
         {/* Search Interface Demo */}
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Search Interface</h2>
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h2 className="text-2xl font-semibold text-gray-800 dark:text-slate-200 mb-4 transition-colors duration-200">Search Interface</h2>
+          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 p-6 transition-colors duration-200">
             <SearchInterface
               onSearch={handleSearch}
               suggestions={mockSuggestions}
@@ -163,8 +163,8 @@ export default function DemoPage() {
               showFilters={true}
             />
             {searchResults && (
-              <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-md">
-                <p className="text-sm text-blue-800">{searchResults}</p>
+              <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-md transition-colors duration-200">
+                <p className="text-sm text-blue-800 dark:text-blue-300 transition-colors duration-200">{searchResults}</p>
               </div>
             )}
           </div>
@@ -197,9 +197,9 @@ export default function DemoPage() {
 
             {/* Related Content Demo */}
             <div className="mt-8">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Related Content</h2>
+              <h2 className="text-2xl font-semibold text-gray-800 dark:text-slate-200 mb-4 transition-colors duration-200">Related Content</h2>
               <LazyLoad height={300} onLoad={() => console.log('Related content loaded')}>
-                <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 p-6 transition-colors duration-200">
                   <RelatedContent
                     currentArticle={mockArticle}
                     maxItems={4}
@@ -210,10 +210,10 @@ export default function DemoPage() {
 
             {/* Performance Demo Section */}
             <div className="mt-8">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Performance Optimizations Demo</h2>
+              <h2 className="text-2xl font-semibold text-gray-800 dark:text-slate-200 mb-4 transition-colors duration-200">Performance Optimizations Demo</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">Optimized Image</h3>
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 p-6 transition-colors duration-200">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-200">Optimized Image</h3>
                   <OptimizedImage
                     src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop"
                     alt="Investment planning"
@@ -223,18 +223,18 @@ export default function DemoPage() {
                     placeholder="blur"
                     quality={80}
                   />
-                  <p className="text-sm text-gray-600 mt-2">
+                  <p className="text-sm text-gray-600 dark:text-slate-400 mt-2 transition-colors duration-200">
                     This image uses Next.js optimization with blur placeholder and quality settings.
                   </p>
                 </div>
 
-                <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">Lazy Loading</h3>
+                <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 p-6 transition-colors duration-200">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-200">Lazy Loading</h3>
                   <LazyLoad 
                     height={200} 
                     placeholder={
-                      <div className="bg-gradient-to-r from-gray-200 to-gray-300 animate-pulse rounded-lg h-48 flex items-center justify-center">
-                        <span className="text-gray-500">Loading content...</span>
+                      <div className="bg-gradient-to-r from-gray-200 to-gray-300 dark:from-slate-700 dark:to-slate-600 animate-pulse rounded-lg h-48 flex items-center justify-center transition-colors duration-200">
+                        <span className="text-gray-500 dark:text-slate-400 transition-colors duration-200">Loading content...</span>
                       </div>
                     }
                     onLoad={() => console.log('Lazy content loaded')}
@@ -254,11 +254,11 @@ export default function DemoPage() {
 
         {/* Component Features */}
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6">Component Features</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 dark:text-slate-200 mb-6 transition-colors duration-200">Component Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">ArticleViewer</h3>
-              <ul className="text-sm text-gray-600 space-y-2">
+            <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 p-6 transition-colors duration-200">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-200">ArticleViewer</h3>
+              <ul className="text-sm text-gray-600 dark:text-slate-400 space-y-2 transition-colors duration-200">
                 <li>• Rich text rendering</li>
                 <li>• Author information</li>
                 <li>• Reading time calculation</li>
@@ -268,9 +268,9 @@ export default function DemoPage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">CategoryBrowser</h3>
-              <ul className="text-sm text-gray-600 space-y-2">
+            <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 p-6 transition-colors duration-200">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-200">CategoryBrowser</h3>
+              <ul className="text-sm text-gray-600 dark:text-slate-400 space-y-2 transition-colors duration-200">
                 <li>• Hierarchical navigation</li>
                 <li>• Expandable categories</li>
                 <li>• Article count display</li>
@@ -280,9 +280,9 @@ export default function DemoPage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">SearchInterface</h3>
-              <ul className="text-sm text-gray-600 space-y-2">
+            <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 p-6 transition-colors duration-200">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-200">SearchInterface</h3>
+              <ul className="text-sm text-gray-600 dark:text-slate-400 space-y-2 transition-colors duration-200">
                 <li>• Auto-complete suggestions</li>
                 <li>• Advanced filtering</li>
                 <li>• Keyboard navigation</li>
@@ -292,9 +292,9 @@ export default function DemoPage() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">RelatedContent</h3>
-              <ul className="text-sm text-gray-600 space-y-2">
+            <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 p-6 transition-colors duration-200">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-200">RelatedContent</h3>
+              <ul className="text-sm text-gray-600 dark:text-slate-400 space-y-2 transition-colors duration-200">
                 <li>• Smart recommendations</li>
                 <li>• Fallback content</li>
                 <li>• Loading states</li>

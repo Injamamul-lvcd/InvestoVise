@@ -104,7 +104,7 @@ const Calculator: React.FC<CalculatorProps> = ({
       const sanitizedInputs = sanitizeInputs(state.inputs);
       const results = config.calculate(sanitizedInputs);
       
-      let chartData;
+      let chartData: any = undefined;
       if (config.generateChart && showChart) {
         chartData = config.generateChart(sanitizedInputs, results);
       }
@@ -183,14 +183,14 @@ const Calculator: React.FC<CalculatorProps> = ({
   }, [config.inputs]);
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <div className="max-w-4xl mx-auto p-6 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-gray-200 dark:border-slate-700 transition-colors duration-200">
       {/* Header */}
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">{config.name}</h2>
-        <p className="text-gray-600">{config.description}</p>
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-200">{config.name}</h2>
+        <p className="text-gray-600 dark:text-slate-300 transition-colors duration-200">{config.description}</p>
         {config.helpText && (
-          <div className="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-md">
-            <p className="text-sm text-blue-800">{config.helpText}</p>
+          <div className="mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-md transition-colors duration-200">
+            <p className="text-sm text-blue-800 dark:text-blue-300 transition-colors duration-200">{config.helpText}</p>
           </div>
         )}
       </div>
@@ -198,13 +198,13 @@ const Calculator: React.FC<CalculatorProps> = ({
       {/* Examples */}
       {showExamples && config.examples && config.examples.length > 0 && (
         <div className="mb-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-3">Examples</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 transition-colors duration-200">Examples</h3>
           <div className="flex flex-wrap gap-2">
             {config.examples.map((example, index) => (
               <button
                 key={index}
                 onClick={() => loadExample(example)}
-                className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
+                className="px-3 py-1 text-sm bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-700 dark:text-slate-200 rounded-md transition-colors duration-200"
                 title={example.description}
               >
                 {example.name}
@@ -217,11 +217,11 @@ const Calculator: React.FC<CalculatorProps> = ({
       <div className="grid lg:grid-cols-2 gap-8">
         {/* Input Section */}
         <div className="space-y-6">
-          <h3 className="text-lg font-semibold text-gray-900">Input Parameters</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white transition-colors duration-200">Input Parameters</h3>
           
           {state.errors.general && (
-            <div className="p-3 bg-red-50 border border-red-200 rounded-md">
-              <p className="text-sm text-red-800">{state.errors.general}</p>
+            <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md transition-colors duration-200">
+              <p className="text-sm text-red-800 dark:text-red-300 transition-colors duration-200">{state.errors.general}</p>
             </div>
           )}
 
@@ -241,14 +241,14 @@ const Calculator: React.FC<CalculatorProps> = ({
             <button
               onClick={calculate}
               disabled={state.isCalculating}
-              className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-2 bg-blue-600 dark:bg-amber-600 text-white rounded-md hover:bg-blue-700 dark:hover:bg-amber-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
             >
               {state.isCalculating ? 'Calculating...' : 'Calculate'}
             </button>
             
             <button
               onClick={resetCalculator}
-              className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors"
+              className="px-4 py-2 bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-slate-200 rounded-md hover:bg-gray-300 dark:hover:bg-slate-500 transition-colors duration-200"
             >
               Reset
             </button>
@@ -256,7 +256,7 @@ const Calculator: React.FC<CalculatorProps> = ({
             {state.results.length > 0 && (
               <button
                 onClick={() => setShowSaveDialog(true)}
-                className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
+                className="px-4 py-2 bg-green-600 dark:bg-green-700 text-white rounded-md hover:bg-green-700 dark:hover:bg-green-600 transition-colors duration-200"
               >
                 Save
               </button>
@@ -281,25 +281,25 @@ const Calculator: React.FC<CalculatorProps> = ({
       {/* Save Dialog */}
       {showSaveDialog && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg max-w-md w-full mx-4">
-            <h3 className="text-lg font-semibold mb-4">Save Calculation</h3>
+          <div className="bg-white dark:bg-slate-800 p-6 rounded-lg max-w-md w-full mx-4 border border-gray-200 dark:border-slate-700 transition-colors duration-200">
+            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white transition-colors duration-200">Save Calculation</h3>
             <input
               type="text"
               value={calculationName}
               onChange={(e) => setCalculationName(e.target.value)}
               placeholder="Enter a name for this calculation"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md mb-4"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-slate-400 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-amber-500 focus:border-transparent transition-colors duration-200"
             />
             <div className="flex gap-3">
               <button
                 onClick={saveToHistory}
-                className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                className="flex-1 px-4 py-2 bg-blue-600 dark:bg-amber-600 text-white rounded-md hover:bg-blue-700 dark:hover:bg-amber-700 transition-colors duration-200"
               >
                 Save
               </button>
               <button
                 onClick={() => setShowSaveDialog(false)}
-                className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+                className="px-4 py-2 bg-gray-200 dark:bg-slate-600 text-gray-700 dark:text-slate-200 rounded-md hover:bg-gray-300 dark:hover:bg-slate-500 transition-colors duration-200"
               >
                 Cancel
               </button>

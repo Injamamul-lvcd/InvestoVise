@@ -121,7 +121,7 @@ const CalculatorChart: React.FC<CalculatorChartProps> = ({
   };
 
   return (
-    <div className={`bg-white p-4 rounded-lg border border-gray-200 ${className}`}>
+    <div className={`bg-white dark:bg-slate-800 p-4 rounded-lg border border-gray-200 dark:border-slate-700 transition-colors duration-200 ${className}`}>
       <div className="h-64 md:h-80">
         {renderChart()}
       </div>

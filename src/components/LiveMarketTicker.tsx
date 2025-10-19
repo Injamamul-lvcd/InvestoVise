@@ -107,11 +107,11 @@ const LiveMarketTicker: React.FC<LiveMarketTickerProps> = ({
 
   if (state.loading && state.indices.length === 0) {
     return (
-      <div className={`bg-white border-b shadow-sm ${className}`}>
+      <div className={`bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 shadow-sm transition-colors duration-200 ${className}`}>
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-center">
-            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
-            <span className="ml-2 text-gray-600">Loading market data...</span>
+            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 dark:border-amber-500"></div>
+            <span className="ml-2 text-gray-600 dark:text-slate-300 transition-colors duration-200">Loading market data...</span>
           </div>
         </div>
       </div>
@@ -120,20 +120,20 @@ const LiveMarketTicker: React.FC<LiveMarketTickerProps> = ({
 
   if (state.error && state.indices.length === 0) {
     return (
-      <div className={`bg-red-50 border-b border-red-200 ${className}`}>
+      <div className={`bg-red-50 dark:bg-red-900/20 border-b border-red-200 dark:border-red-800 transition-colors duration-200 ${className}`}>
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <div className="text-red-600">
+              <div className="text-red-600 dark:text-red-400">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                 </svg>
               </div>
-              <span className="ml-2 text-red-800">Market data unavailable</span>
+              <span className="ml-2 text-red-800 dark:text-red-300 transition-colors duration-200">Market data unavailable</span>
             </div>
             <button
               onClick={fetchMarketData}
-              className="text-red-600 hover:text-red-800 text-sm font-medium"
+              className="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 text-sm font-medium transition-colors duration-200"
             >
               Retry
             </button>
@@ -144,17 +144,17 @@ const LiveMarketTicker: React.FC<LiveMarketTickerProps> = ({
   }
 
   return (
-    <div className={`bg-white border-b shadow-sm ${className}`}>
+    <div className={`bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 shadow-sm transition-colors duration-200 ${className}`}>
       <div className="container mx-auto px-4 py-3">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
           {/* Market Indices */}
           <div className="flex flex-wrap items-center gap-6 mb-2 lg:mb-0">
             {state.indices.map((index) => (
               <div key={index.symbol} className="flex items-center space-x-2">
-                <div className="font-semibold text-gray-900">
+                <div className="font-semibold text-gray-900 dark:text-white transition-colors duration-200">
                   {index.name}
                 </div>
-                <div className="text-lg font-bold text-gray-900">
+                <div className="text-lg font-bold text-gray-900 dark:text-white transition-colors duration-200">
                   {formatNumber(index.value)}
                 </div>
                 <div className={`text-sm font-medium ${getChangeColor(index.change)}`}>
@@ -179,7 +179,7 @@ const LiveMarketTicker: React.FC<LiveMarketTickerProps> = ({
               )}
               
               {state.lastUpdated && (
-                <div className="text-gray-500">
+                <div className="text-gray-500 dark:text-slate-400 transition-colors duration-200">
                   Updated: {state.lastUpdated.toLocaleTimeString('en-IN', {
                     hour: '2-digit',
                     minute: '2-digit'
@@ -189,8 +189,8 @@ const LiveMarketTicker: React.FC<LiveMarketTickerProps> = ({
               
               {state.loading && (
                 <div className="flex items-center space-x-1">
-                  <div className="animate-spin rounded-full h-3 w-3 border-b border-blue-600"></div>
-                  <span className="text-blue-600">Updating...</span>
+                  <div className="animate-spin rounded-full h-3 w-3 border-b border-blue-600 dark:border-amber-500"></div>
+                  <span className="text-blue-600 dark:text-amber-500 transition-colors duration-200">Updating...</span>
                 </div>
               )}
             </div>
@@ -199,7 +199,7 @@ const LiveMarketTicker: React.FC<LiveMarketTickerProps> = ({
 
         {/* Error message (if data exists but there's an error) */}
         {state.error && state.indices.length > 0 && (
-          <div className="mt-2 text-sm text-yellow-700 bg-yellow-50 px-3 py-1 rounded">
+          <div className="mt-2 text-sm text-yellow-700 dark:text-yellow-300 bg-yellow-50 dark:bg-yellow-900/20 px-3 py-1 rounded transition-colors duration-200">
             Warning: {state.error}
           </div>
         )}

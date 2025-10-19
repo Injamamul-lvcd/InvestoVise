@@ -33,26 +33,26 @@ const CalculatorResults: React.FC<CalculatorResultsProps> = ({
 
   const getResultColor = (id: string) => {
     if (id.includes('total') || id.includes('maturity')) {
-      return 'bg-green-50 border-green-200 text-green-800';
+      return 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-800 dark:text-green-300';
     }
     if (id.includes('tax') || id.includes('interest')) {
-      return 'bg-red-50 border-red-200 text-red-800';
+      return 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 text-red-800 dark:text-red-300';
     }
     if (id.includes('return') || id.includes('gain')) {
-      return 'bg-blue-50 border-blue-200 text-blue-800';
+      return 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-300';
     }
-    return 'bg-gray-50 border-gray-200 text-gray-800';
+    return 'bg-gray-50 dark:bg-slate-700 border-gray-200 dark:border-slate-600 text-gray-800 dark:text-slate-200';
   };
 
   return (
     <div className={`space-y-4 ${className}`}>
-      <h3 className="text-lg font-semibold text-gray-900">Results</h3>
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-white transition-colors duration-200">Results</h3>
       
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {results.map((result) => (
           <div
             key={result.id}
-            className={`p-4 rounded-lg border-2 ${getResultColor(result.id)}`}
+            className={`p-4 rounded-lg border-2 transition-colors duration-200 ${getResultColor(result.id)}`}
           >
             <div className="flex items-center justify-between">
               <h4 className="text-sm font-medium">{result.label}</h4>

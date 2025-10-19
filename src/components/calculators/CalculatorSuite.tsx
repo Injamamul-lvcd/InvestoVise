@@ -82,9 +82,9 @@ const CalculatorSuite: React.FC<CalculatorSuiteProps> = ({
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors duration-200">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b">
+      <div className="bg-white dark:bg-slate-800 shadow-sm border-b border-gray-200 dark:border-slate-700 transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <h1 className="text-2xl font-bold text-gray-900">Financial Calculators</h1>
@@ -104,8 +104,8 @@ const CalculatorSuite: React.FC<CalculatorSuiteProps> = ({
         <div className="flex gap-8">
           {/* Sidebar */}
           <div className="w-80 flex-shrink-0">
-            <div className="bg-white rounded-lg shadow-sm border p-6 sticky top-8">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">Calculators</h2>
+            <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 p-6 sticky top-8 transition-colors duration-200">
+              <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-200">Calculators</h2>
               
               <div className="space-y-4">
                 {Object.entries(groupedCalculators).map(([category, calcs]) => (
@@ -149,8 +149,8 @@ const CalculatorSuite: React.FC<CalculatorSuiteProps> = ({
       {/* History Panel */}
       {showHistoryPanel && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg max-w-4xl w-full mx-4 max-h-[80vh] overflow-hidden">
-            <div className="p-6 border-b">
+          <div className="bg-white dark:bg-slate-800 rounded-lg max-w-4xl w-full mx-4 max-h-[80vh] overflow-hidden border border-gray-200 dark:border-slate-700 transition-colors duration-200">
+            <div className="p-6 border-b border-gray-200 dark:border-slate-700 transition-colors duration-200">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold">Calculation History</h3>
                 <div className="flex gap-2">

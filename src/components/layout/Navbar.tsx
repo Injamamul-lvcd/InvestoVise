@@ -392,19 +392,6 @@ const Navbar: React.FC = () => {
             {/* Auth Buttons */}
             <div className="flex items-center space-x-1.5 flex-shrink-0">
               <Link
-                href="/admin/login"
-                className={`px-2.5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                  isDarkMode 
-                    ? 'text-slate-400 hover:text-blue-400 hover:bg-slate-800/60 hover:shadow-md' 
-                    : 'text-slate-600 hover:text-blue-600 hover:bg-slate-50 hover:shadow-md'
-                }`}
-                title="Admin Panel"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </Link>
-              <Link
                 href="/auth/login"
                 className={`px-2.5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
                   isDarkMode 
