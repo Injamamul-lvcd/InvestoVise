@@ -111,7 +111,7 @@ export default function AdminSidebar() {
   };
 
   return (
-    <div className="fixed left-0 top-16 bottom-0 w-64 bg-white border-r border-gray-200 overflow-y-auto">
+    <div className="fixed left-0 top-16 bottom-0 w-64 bg-white dark:bg-slate-800 border-r border-gray-200 dark:border-slate-700 overflow-y-auto transition-colors duration-200">
       <div className="p-4">
         <nav className="space-y-2">
           {sidebarItems.map((item) => (
@@ -120,10 +120,10 @@ export default function AdminSidebar() {
                 <div>
                   <button
                     onClick={() => toggleExpanded(item.name)}
-                    className={`w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                    className={`w-full flex items-center justify-between px-3 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200 ${
                       isActive(item.href)
-                        ? 'bg-blue-50 text-blue-700'
-                        : 'text-gray-700 hover:bg-gray-100'
+                        ? 'bg-gradient-to-r from-amber-500/10 to-orange-500/10 text-amber-700 dark:text-amber-400 shadow-lg shadow-amber-500/20 border border-amber-500/20'
+                        : 'text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 hover:shadow-md'
                     }`}
                   >
                     <div className="flex items-center space-x-3">
@@ -147,12 +147,17 @@ export default function AdminSidebar() {
                         <Link
                           key={child.name}
                           href={child.href}
-                          className={`block px-3 py-2 text-sm rounded-lg transition-colors ${
+                          className={`flex items-center px-4 py-2 text-sm rounded-xl transition-all duration-200 ${
                             isActive(child.href)
-                              ? 'bg-blue-50 text-blue-700 font-medium'
-                              : 'text-gray-600 hover:bg-gray-100'
+                              ? 'bg-gradient-to-r from-amber-500/10 to-orange-500/10 text-amber-700 dark:text-amber-400 font-semibold border-l-2 border-amber-500'
+                              : 'text-gray-600 dark:text-slate-400 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-amber-700 dark:hover:text-amber-400'
                           }`}
                         >
+                          <div className={`w-2 h-2 rounded-full mr-3 transition-all duration-200 ${
+                            isActive(child.href)
+                              ? 'bg-amber-500 shadow-lg shadow-amber-500/50'
+                              : 'bg-gray-300 dark:bg-slate-600'
+                          }`}></div>
                           {child.name}
                         </Link>
                       ))}
@@ -162,10 +167,10 @@ export default function AdminSidebar() {
               ) : (
                 <Link
                   href={item.href}
-                  className={`flex items-center space-x-3 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  className={`flex items-center space-x-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200 ${
                     isActive(item.href)
-                      ? 'bg-blue-50 text-blue-700'
-                      : 'text-gray-700 hover:bg-gray-100'
+                      ? 'bg-gradient-to-r from-amber-500/10 to-orange-500/10 text-amber-700 dark:text-amber-400 shadow-lg shadow-amber-500/20 border border-amber-500/20'
+                      : 'text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 hover:shadow-md'
                   }`}
                 >
                   {item.icon}
